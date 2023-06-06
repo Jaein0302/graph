@@ -1,0 +1,223 @@
+<html>
+<head>
+  <meta charSet="utf-8">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(drawIros);
+    google.charts.setOnLoadCallback(drawEais);
+    google.charts.setOnLoadCallback(drawGov);
+    google.charts.setOnLoadCallback(drawCorp);
+
+    var iros_options = {
+      title: '부동산등기',
+      vAxis: {title: '날짜'},
+      hAxis: {title: '열람수'},
+      seriesType: 'bars',
+      bar : {
+        groupWidth : '40%'
+      },
+      isStacked: true,
+      titleTextStyle: {
+        fontSize: 26,
+        bold: true,
+        color: '#3A3A3A'
+        },
+      series: {
+        0: { color: '#FF7473' },
+        1: { color: '#FFE08C' },
+        2: { color: '#47B8E0' },
+        3: { color: '#1DDB16', type: 'line' },
+      }
+    };
+
+    function drawIros() {
+      var data = google.visualization.arrayToDataTable([
+        ['날짜', '토지', '건물', '집합건물', '총열람수'],
+<!--        ['3월 1주', 8141, 6417, 17043, 31601],-->
+<!--        ['3월 2주', 5893, 5645, 14938, 26476],-->
+<!--        ['3월 3주', 9077, 8314, 21564, 38955],-->
+        ['3월 4주', 9677, 9035, 24078, 42790],
+        ['4월 1주', 10163, 9610, 23960, 43733],
+        ['4월 2주', 10092, 9380, 26027, 45499],
+        ['4월 3주', 5972, 5636, 15456, 27064],
+        ['4월 4주', 2367, 2156, 12428, 16951],
+        ['5월 1주', 6134, 5812, 15318, 27264],
+        ['5월 2주', 6512, 6219, 16608, 29339],
+        ['5월 3주', 5167, 4815, 13422, 23404],
+        ['5월 4주', 1570, 1320, 3895, 6785],
+        ['6월 1주', 4115, 3848, 10486, 18449],
+      ]);
+
+      var chart = new google.visualization.ComboChart(document.getElementById('iros_chart_div'));
+      chart.draw(data, iros_options);
+    }
+
+    var eais_options = {
+      title: '건축물대장',
+      vAxis: {title: '날짜'},
+      hAxis: {title: '열람수'},
+      seriesType: 'bars',
+      bar : {
+        groupWidth : '40%'
+      },
+      series: {6: {type: 'line'}},
+      isStacked: true,
+      titleTextStyle: {
+        fontSize: 26,
+        bold: true,
+        color: '#3A3A3A'
+      },
+      series: {
+        0: { color: '#6A60A9' },
+        1: { color: '#FF7473' },
+        2: { color: '#FFE08C' },
+        3: { color: '#34314C' },
+        4: { color: '#47B8E0' },
+        5: { color: '#FADAD8' },
+        6: { color: '#1DDB16', type: 'line' }
+      }
+    };
+
+    function drawEais() {
+      var data = google.visualization.arrayToDataTable([
+        ['날짜', '건물_총괄', '건물_일반', '집합_총괄', '집합_표제', '집합_전유', '미확인', '총열람수'],
+<!--        ['3월 1주', 0, 77719, 1, 1, 328718, 3, 406439],-->
+<!--        ['3월 2주', 0, 47161, 0, 238, 149997, 3, 197396],-->
+<!--        ['3월 3주', 1, 28389, 0, 8, 341873, 2, 370271],-->
+        ['3월 4주', 0, 42, 2, 236, 424310, 196, 424590],
+        ['4월 1주', 0, 76379, 0, 15, 354544, 3, 430938],
+        ['4월 2주', 0, 53958, 1, 29, 403911, 8, 457899],
+        ['4월 3주', 0, 6329, 0, 287, 337959, 2, 344577],
+        ['4월 4주', 1, 6, 1, 18, 450658, 1, 450685],
+        ['5월 1주', 0, 9, 0, 23, 201905, 1, 201937],
+        ['5월 2주', 1, 47586, 1, 41, 119056, 5, 166691],
+        ['5월 3주', 0, 29401, 2, 96, 51894, 1, 81394],
+        ['5월 4주', 0, 27606, 1, 88, 87573, 3, 115271],
+        ['6월 1주', 0, 74765, 0, 51, 391643, 12, 466471],
+      ]);
+
+      var chart = new google.visualization.ComboChart(document.getElementById('eais_chart_div'));
+      chart.draw(data, eais_options);
+    }
+
+    var gov_options = {
+      title: '토지대장',
+      vAxis: {title: '날짜'},
+      hAxis: {title: '열람수'},
+      seriesType: 'bars',
+      bar : {
+        groupWidth : '40%'
+      },
+      series: {6: {type: 'line'}},
+      isStacked: true,
+      titleTextStyle: {
+        fontSize: 26,
+        bold: true,
+        color: '#3A3A3A'
+      },
+      series: {
+        0: { color: '#FFE08C' },
+        1: { color: '#FF7473' },
+        2: { color: '#47B8E0' },
+        3: { color: '#1DDB16', type: 'line' },
+      }
+    };
+
+    function drawGov() {
+      var data = google.visualization.arrayToDataTable([
+        ['날짜', '토지',	'임야',	'미확인', '총열람수'],
+<!--        ['3월 1주', 7,	0,	0, 7],-->
+<!--        ['3월 2주', 2,	0,	0, 2],-->
+<!--        ['3월 3주', 8,	0,	0, 8],-->
+        ['3월 4주', 18,	0,	0, 18],
+        ['4월 1주', 2,	0,	0, 2],
+        ['4월 2주', 2,	0,	0, 2],
+        ['4월 3주', 0,	0,	0, 0],
+        ['4월 4주', 3,	0,	0, 3],
+        ['5월 1주', 0,	0,	0, 0],
+        ['5월 2주', 17,	0,	0, 17],
+        ['5월 3주', 92,	9,	0, 101],
+        ['5월 4주', 160,	10,	0, 180],
+        ['6월 1주', 104,	13,	0, 117]
+      ]);
+
+      var chart = new google.visualization.ComboChart(document.getElementById('gov_chart_div'));
+      chart.draw(data, gov_options);
+    }
+
+    var corp_options = {
+      title: '법인등기',
+      vAxis: {title: '날짜'},
+      hAxis: {title: '열람수'},
+      seriesType: 'bars',
+      bar : {
+        groupWidth : '40%'
+      },
+      series: {6: {type: 'line'}},
+      isStacked: true,
+      titleTextStyle: {
+        fontSize: 26,
+        bold: true,
+        color: '#3A3A3A'
+      },
+      series: {
+        0: { color: '#FFE08C' },
+        1: { color: '#1DDB16', type: 'line' },
+      }
+    };
+
+    function drawCorp() {
+      var data = google.visualization.arrayToDataTable([
+        ['날짜', '법인', '총열람수'],
+<!--        ['3월 1주', 0, 0],-->
+<!--        ['3월 2주', 9, 9],-->
+<!--        ['3월 3주', 5, 5],-->
+        ['3월 4주', 1, 1],
+        ['4월 1주', 1, 1],
+        ['4월 2주', 1, 1],
+        ['4월 3주', 0, 0],
+        ['4월 4주', 0, 0],
+        ['5월 1주', 0, 0],
+        ['5월 2주', 2, 2],
+        ['5월 3주', 2, 2],
+        ['5월 4주', 9, 9],
+        ['6월 1주', 0, 0]
+      ]);
+
+      var chart = new google.visualization.ComboChart(document.getElementById('corp_chart_div'));
+      chart.draw(data, corp_options);
+    }
+  </script>
+</head>
+<body>
+<div style="width: 800px; float:left;">
+  <div id="iros_chart_div" style="height: 500px;"></div>
+  <div style="text-align:center;">
+    <button type="button" onClick="iros_options.isStacked=false; drawIros()">개별</button>
+    <button type="button" onClick="iros_options.isStacked=true; drawIros()">누적</button>
+  </div>
+</div>
+<div style="width: 800px; float:left;">
+  <div id="eais_chart_div" style="height: 500px;"></div>
+  <div style="text-align:center;">
+    <button type="button" onClick="eais_options.isStacked=false; drawEais()">개별</button>
+    <button type="button" onClick="eais_options.isStacked=true; drawEais()">누적</button>
+  </div>
+</div>
+<div style="width: 800px; float:left;">
+  <div id="gov_chart_div" style="height: 500px;"></div>
+  <div style="text-align:center;">
+    <button type="button" onClick="gov_options.isStacked=false; drawGov()">개별</button>
+    <button type="button" onClick="gov_options.isStacked=true; drawGov()">누적</button>
+  </div>
+</div>
+<div style="width: 800px; float:left;">
+  <div id="corp_chart_div" style="height: 500px;"></div>
+  <div style="text-align:center;">
+    <button type="button" onClick="corp_options.isStacked=false; drawCorp()">개별</button>
+    <button type="button" onClick="corp_options.isStacked=true; drawCorp()">누적</button>
+  </div>
+</div>
+</body>
+</html>
